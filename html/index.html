@@ -1,0 +1,245 @@
+<body>
+  <h1>Main Page Title</h1>
+  <h2>Section Title</h2>
+  <h3>Sub Section Title</h3>
+  <h4>title 4</h4>
+  <h5>title 5</h5>
+  <h6>title 6</h6>
+  <h7>title 6</h7>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <hr />
+
+  <p>This is a paragraph</p>
+
+  <p>This is a <strong>paragraph</strong></p>
+  <!-- 
+   <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+   </ul> -->
+
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+
+  <input />
+
+  <input type="range" />
+
+  <img src="https://picsum.photos/200" alt="scene" />
+
+  <!-- List -->
+
+  <!-- 
+   <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+   </ul> -->
+
+  <!-- <ol>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+   </ol>  -->
+
+  <!-- <ol type="I">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+   </ol>  -->
+
+  <ol reversed start="6">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <ol type="I">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ol>
+  </ol>
+
+  <!-- navigation -->
+
+  <a href="https://www.w3schools.com/html/" target="_blank">Go to W3 school</a>
+
+  <br />
+  <br />
+  <br />
+  <br />
+
+  <!-- table -->
+
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>Class</th>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>1st</td>
+      </tr>
+      <tr>
+        <td>Peter</td>
+        <td>2nd</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- FORMS -->
+
+  <!-- <form>
+    <input  type="text" name="username">
+
+    <button type="submit">Submit</button>
+  </form> -->
+
+  <!-- the above form is inaccessible  -->
+
+  <!-- <form>
+    <fieldset>
+        <legend>Basic Info</legend>
+
+        <label for="username">Choose a username:</label>
+        <input  type="text" id="username" name="username">
+        <br>
+        <button type="submit">Submit</button>
+    </fieldset>
+
+  </form> -->
+
+
+  <form>
+    <fieldset>
+        <legend>Account Setup</legend>
+
+        <label for="username">Username:</label>
+        <input  type="text" id="username" name="username" required minlength="4">
+        
+        <br><br>
+
+        <label for="email">Email Address:</label>
+        <input  type="email" id="email" name="email" required>
+        
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input  type="password" id="password" name="password" required>
+        
+        <br><br>
+    </fieldset>
+
+    <button type="submit">Submit</button>
+
+
+  </form>
+  <!-- http://127.0.0.1:5500/html/index.html?username=abcabc&email=abc&password=dasdasdas
+  http://127.0.0.1:5500/html/index.html?username=&email=&password= -->
+  <!-- http://127.0.0.1:5500/html/index.html?username=dasdsad&email=abc%40gmail.com&password=dasdasd -->
+
+
+  <form>
+    <fieldset>
+        <legend>Profile Details</legend>
+
+        <p>Select your account type:</p>
+        <label >
+            <input type="radio" value="personal" name="account_type" required>Personal
+        </label>
+
+        <label >
+            <input type="radio" value="business" name="account_type" required>Business
+        </label>
+        
+        <br><br>
+
+        <p>Select your interests(pick as many as u like):</p>
+
+        <label>
+            <input type="checkbox" value="coding" name="interests">Coding
+        </label>
+
+        <label>
+            <input type="checkbox" value="design" name="interests">Design
+        </label>
+
+        <br><br>
+
+        <label for="country">Country:</label>
+
+        <select id="country" name="country">
+            <option value="" disabled>Please select</option>
+            <option value="us" >United States</option>
+            <option value="in" >India</option>
+
+        </select>
+
+        <br><br>
+
+        <!-- Additional data -->
+
+        <fieldset>
+            <legend>Additional Info</legend>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="18" max="120">
+            <br><br>
+
+
+            <label for="bday">Birthday:</label>
+            <input type="date" id="bday" name="bday">
+            <br><br>
+
+
+            <label for="avatar">upload profile pic:</label>
+            <input type="file" id="avatar" name="avatar" accept=".jpg, .png">
+            <br><br>
+
+            <label for="bio">Tell us abt yourself:</label>
+            <textarea id="bio" name="bio" rows="4" cols="50" maxlength="300" placeholder="I am a developer..."></textarea>
+            <br><br>
+            
+        </fieldset>
+
+    </fieldset>
+
+    <button type="submit">Submit</button>
+
+
+  </form>
+  <!-- http://127.0.0.1:5500/html/index.html?username=abcabc&email=abc&password=dasdasdas
+  http://127.0.0.1:5500/html/index.html?username=&email=&password= -->
+  <!-- http://127.0.0.1:5500/html/index.html?username=dasdsad&email=abc%40gmail.com&password=dasdasd -->
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+</body>
