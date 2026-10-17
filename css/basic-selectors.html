@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* universal selector */
+      /* *{
+            color: blue;
+        } */
+
+      /* type selector */
+      /* p{
+            color: red;
+        } */
+      /* class selector */
+      .my-class {
+        color: red;
+      }
+
+      /* id selector */
+
+      #abc {
+        border: 1px solid blue;
+      }
+
+      /* attribute selector */
+/* 
+      [data-type="primary"] {
+        color: gray;
+      } */
+
+      /*  a href that contains my */
+      /* [href *= 'my']{
+        color: brown;
+      } */
+
+
+      /*  a href that starts with my- */
+
+      /* [href ^= 'my-']{
+        color: brown;
+      } */
+
+      /*  a href that ends with .pdf */
+
+      /* [href $= '.pdf']{
+        color: brown;
+      } */
+
+
+
+    </style>
+  </head>
+  <body>
+    <p id="abc">This is a paragraph</p>
+
+    <div class="my-class another-class">This is a div</div>
+    <button class="my-class">Click</button>
+    <p class="my-class">This is a paragraph</p>
+
+    <div data-type="primary">This is div 2</div>
+
+    <ul>
+      <li>
+        <a href="my-image.jpg">An example image</a>
+      </li>
+      <li>
+        <a href="my-document.pdf">An example doc</a>
+      </li>
+      <li>
+        <a href="my-another-doc.pdf">Another example doc</a>
+      </li>
+    </ul>
+  </body>
+</html>

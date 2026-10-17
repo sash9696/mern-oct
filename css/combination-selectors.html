@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p strong {
+        color: blue;
+      }
+      /* 
+        div span{
+            color: red;
+        } */
+
+      div > span {
+        color: red;
+      }
+
+      div.green{
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum maxime
+      aliquam id reiciendis illum aliquid velit sit neque. Earum alias at
+      consequuntur quia inventore labore dolore
+      <strong>laborum in, veniam rem?</strong>
+    </p>
+
+    <div>
+      <p>
+        <span>This is a span</span>
+      </p>
+    </div>
+
+    <div>
+      <span class="green">This is a span 2</span>
+    </div>
+
+    <div class="green">This is a div</div>
+
+  </body>
+</html>
