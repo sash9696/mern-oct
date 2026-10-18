@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+        body{
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .narrow-sidebar{
+            width: 250px;
+            padding: 15px;
+            background: lawngreen;
+            border-radius: 8px;
+        }
+
+        .wide-main{
+            flex: 1;
+            background: lightblue;
+            min-width: 400px;
+            padding: 15px;
+            border-radius: 8px;
+            
+        }
+
+        /* Step 1 to define the container */
+
+        .component-wrapper{
+            container-type: inline-size;
+        }
+
+        /* Step 2 to give default compoennt styles (Mobile first/ narrow first) */
+
+        .user-card{
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .avatar{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: aquamarine;
+        }
+
+    /* Step 2 to add container queries */
+
+    @container (min-width:350px){
+        .user-card{
+            flex-direction: row;
+            text-align: left;
+        }
+
+        .avatar{
+            width: 80px;
+            height: 80px;
+        }
+
+    }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="narrow-sidebar">
+      <h3>Sidebar</h3>
+
+      <div class="component-wrapper">
+        <div class="user-card">
+          <div class="avatar"></div>
+          <div>
+            <h4 style="margin: 0 0 5px 0">John Doe</h4>
+            <p style="margin: 0; font-size: 14px; color: gray">Developer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wide-main">
+      <h3>Main Feed</h3>
+      <div class="component-wrapper">
+        <div class="user-card">
+          <div class="avatar"></div>
+          <div>
+            <h4 style="margin: 0 0 5px 0">John Doe</h4>
+            <p style="margin: 0; font-size: 14px; color: gray">Developer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

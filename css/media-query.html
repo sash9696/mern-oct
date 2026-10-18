@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      /* we design for small screen first */
+
+      body {
+        margin: 0;
+        padding: 20px;
+      }
+
+      .feature-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .feature-card {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px black;
+        text-align: center;
+      }
+
+      /* then we design for  table and desktop using media queries */
+
+      @media (min-width: 768px) {
+        .feature-grid {
+          flex-direction: row;
+          justify-content: space-between;
+          gap: 20px;
+        }
+        .feature-card{
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .feature-card:first-child{margin-left: 0;}
+        .feature-card:last-child{margin-right: 0;}
+      }
+
+      @media (min-width: 900px) {
+        .feature-card{
+            background-color: antiquewhite;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2 style="text-align: center">Our Features</h2>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Speed</h3>
+        <p>Lightning fast load times across all devices.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Security</h3>
+        <p>Enterprise-grade encryption for your data.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Support</h3>
+        <p>24/7 dedicated customer service team.</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modern-btn{
+            color: white;
+            background-color: lightblue;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.5s ease-in, transform 0.3s ease-out ;
+        }
+
+        .modern-btn:hover{
+            background-color: blueviolet;
+            transform: scale(1.05);
+        }
+
+        .search-input{
+            width: 150px;
+            padding: 10px;
+            border: 2px solid;
+            border-radius: 20px;
+            outline: none;
+            transition: width 0.4s ease-in-out, border-color 0.3s ease;
+
+        }
+
+        .search-input:focus{
+            width: 300px;
+            border-color: violet;
+        }
+    </style>
+</head>
+<body>
+    <h2>Transition</h2>
+
+
+    <!-- <button class="modern-btn">Hover over me</button> -->
+
+    <input type="text" class="search-input" placeholder="Search">
+</body>
+</html>
