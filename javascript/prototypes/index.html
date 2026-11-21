@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <h2>Prototypes</h2>
+
+    <script>
+      // Imagine we have 3 users
+      // const user1 = {
+      //   name:'John',
+      //   greet(){
+      //     console.log('Hello!')
+      //   }
+      // }
+      // const user2 = {
+      //   name:'Peter',
+      //   greet(){
+      //     console.log('Hello!')
+      //   }
+      // }
+      // const user3 = {
+      //   name:'Amit',
+      //   greet(){
+      //     console.log('Hello!')
+      //   }
+      // }
+
+      // Imagine if the app has 10000 users
+      // then 10000 copies of this greet function would be created
+
+      // can js allow multiple objects to share the same method?
+
+      // every ordinary js object has an internal link (__proto__) that is linked to another object
+      //called prototype
+
+      // function x(){
+
+      //   console.log('i am a func')
+      // }
+
+      // x.value = 10;
+
+      // console.log(x.value)
+
+      // function User(name){
+      //   this.name = name
+      // }
+
+      // console.log(User.prototype)
+
+      // const user1 = {
+      //   name:'John',
+      //   greet(){
+      //     console.log('Hello!')
+      //   }
+      // }
+      // const user2 = {
+      //   name:'Peter',
+      //   greet(){
+      //     console.log('Hello!')
+      //   }
+      // }
+      // const user3 = {
+      //   name:'Amit',
+      //   greet(){
+      //     console.log('Hello!')
+      //   }
+      // }
+
+      // factory functions
+
+      // solution 1
+
+      // function createUser(name, age){
+
+      //   return {
+      //     name,
+      //     age,
+      //     greet(){
+      //       console.log(`Hello , ${this.name}`)
+      //     }
+      //   }
+      // }
+
+      // const user1 = createUser('John', 20)
+      // const user2 = createUser('Peter', 30)
+
+      // console.log(user1)
+      // console.log(user2)
+
+      // console.log(user1.greet === user2.greet)
+
+      // again same problem if we create 1000 users it will create 1000 copies of the same method
+
+      // solution 2
+
+      // const userMethods = {
+      //   greet() {
+      //     console.log(`Hello , ${this.name}`);
+      //   },
+      //   getAge() {
+      //     console.log(this.age);
+      //   },
+      // };
+
+      // function createUser(name, age) {
+      //   // const user = Object.assign({},userMethods)
+
+      //   //Object.assign copies the method references
+
+      //   const user = Object.create(userMethods)
+
+      //   // object.create establishes the prototype link
+
+      //   console.log('user', user)
+      //   user.name = name;
+      //   user.age = age;
+
+      //   console.log(user)
+      //   return user
+      // }
+
+      // const user1 = createUser("John", 20);
+      // const user2 = createUser("Peter", 30);
+
+      // console.log(user1.greet === user2.greet)
+
+      // solution 3
+
+      // const userMethods = {
+      //   greet() {
+      //     console.log(`Hello , ${this.name}`);
+      //   },
+      //   getAge() {
+      //     console.log(this.age);
+      //   },
+      // };
+
+      // function CreateUser(name, age) {
+
+      //   // how do we refer the newly created obejct?
+      //   // using this
+
+      //   this.name =  name;
+      //   this.age = age
+
+      // }
+
+      // CreateUser.prototype.greet = userMethods.greet
+
+      // const user1 = new CreateUser("John", 20);
+      // const user2 = new CreateUser("Peter", 30);
+
+      // new keywords does 3 things for us
+      //creates a empty new object
+      // it links the new object's prototype to User.prototype
+      // calls the cosntructor and returns the new object
+
+      // console.log(user1)
+
+      // function User(name, age){
+      //   this.name = name;
+      //   this.age = age
+      // }
+
+      // User.prototype.greet = function(){
+      //   return `Hello ${this.name}`
+      // }
+
+      // const user1 = new User("John", 10)
+
+      // classes are nothing but syntactic sugar
+
+      // class User{
+
+      //   constructor(name, age){
+      //     // instance properties
+      //     this.name = name;
+      //     this.age = age;
+      //   }
+
+      //   // instance methods
+
+      //   greet(){
+      //     return `Hello ${this.name}`
+      //   }
+
+      // }
+
+      // const user1 = new User("John", 10)
+      // console.log(user1)
+
+      // Inheritance
+
+      // this a parent constructor
+      // function User(name, email) {
+      //   this.name = name;
+      //   this.email = email;
+      // }
+
+      // User.prototype.login = function(){
+      //   return `${this.name} logged in`
+      // }
+
+      // User.prototype.logout = function(){
+      //   return `${this.name} logged out`
+      // }
+
+      // // create a child constructor
+
+      // function Admin(name, email, role){
+
+      //   User.call(this, name, email);
+
+      //   console.log('this', this)
+
+      //   this.role = role;
+      // }
+
+      // Admin.prototype.deleteUser = function(){
+      //   return "User deleted by admin"
+      // }
+
+      // either use this
+      // Object.setPrototypeOf(Admin.prototype, User.prototype)
+      // or
+
+      // Admin.prototype = Object.create(User.prototype)
+      // Admin.prototype.constructor = Admin;
+
+      // const admin1 = new Admin("John", "j@gmail.com", "Superadmin")
+
+      // console.log(admin1)
+      // console.log(admin1.name)
+      // console.log(admin1.role)
+      // console.log(admin1.login())
+
+      // class User {
+      //   constructor(name, email) {
+      //     this.name = name;
+      //     this.email = email;
+      //   }
+
+      //   login() {
+      //     return `${this.name} logged in`;
+      //   }
+
+      //   logout() {
+      //     return `${this.name} logged out`;
+      //   }
+      // }
+
+      // class Admin extends User {
+      //   constructor(name, email, role) {
+      //     super(name, email);
+
+      //     this.role = role;
+      //   }
+
+      //   deleteUser() {
+      //     return "User deleted by admin";
+      //   }
+      // }
+
+      // const admin1 = new Admin("John", "j@gmail.com", "Superadmin");
+
+      // console.log(admin1.login());
+
+      // method overriding
+
+      // class Animal{
+      //   speak(){
+      //     return `Animal makes a sound`
+      //   }
+      // }
+
+      // class Dog extends Animal{
+      //   speak(){
+      //     return `Dog barks`
+      //   }
+      // }
+
+      // const animal = new Animal();
+      // const dog = new Dog();
+
+      // console.log(animal.speak())
+      // console.log(dog.speak())
+
+      // can we still call the parent's methods
+
+      // class Animal{
+      //   speak(){
+      //     return `Animal makes a sound`
+      //   }
+      // }
+
+      // class Dog extends Animal{
+      //   speak(){
+      //     return super.speak() + " and Dog barks"
+      //   }
+      // }
+
+      // const animal = new Animal();
+      // const dog = new Dog();
+
+      // console.log(animal.speak())
+      // console.log(dog.speak())
+
+      // super => it invokes the parent constructor
+
+      // static propertie and methods
+
+      // class User{
+
+      //   constructor(name){
+      //     this.name = name
+      //   }
+
+      //   login(){
+      //     return `${this.name} logged in`
+      //   }
+
+      //   static createGuest(){
+      //     return new User('Guest')
+      //   }
+      // }
+
+      // // const guest  = User.createGuest();
+      // // console.log(guest.name)
+
+      // const guest  = User.createGuest();
+      // console.log(guest.createGuest())
+
+      // class User {
+
+      //   static count = 0;
+      //   constructor(name) {
+      //     this.name = name;
+      //     User.count++;
+      //   }
+
+      // }
+
+      // const user1 = new User("John")
+      // const user2 = new User("Peter")
+
+      // console.log(user1.count)
+      // console.log(User.count)
+
+      // console.log(User.hasOwnProperty("count"))
+      // this means thes static methods and variabels are stored inside the constructor itself
+
+      // that means super should access to it
+
+
+      // getters and setters
+
+      // they allows us to access and update properties like normal variables while
+      //executing custom logic behid the scenes
+
+
+      // class User{
+      //   constructor(firstName, lastName,){
+      //     this.firstName = firstName;
+      //     this.lastName = lastName
+      //   }
+
+      //   get fullName(){
+      //     return `${this.firstName}  ${this.lastName}`
+      //   }
+
+      //   set changeName(value){
+      //     this.name = value
+      //   }
+      // }
+
+      // const user = new User('John', "DOE", "abc")
+
+      // user.changeName = 'Peter'
+      // console.log(user.name)
+
+      // getters and setters for validation
+
+
+      class User{
+        constructor(age){
+          this._age = age;
+        }
+
+        get age(){
+          return this._age
+        }
+
+        set age(value){
+          if(value < 0){
+            console.log('Invalid age')
+            return
+          }
+          this._age = value
+        }
+      }
+
+      const user = new User(29)
+      console.log(user.age)
+
+      user.age = 30
+
+      console.log(user.age)
+
+      user.age = -5;
+
+
+      console.log(user.age)
+
+
+      // private fields
+
+    </script>
+  </body>
+</html>
